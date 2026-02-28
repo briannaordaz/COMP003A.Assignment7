@@ -11,7 +11,8 @@ class Program
     {
         string[] subject = new string[5];
         int[] scores = new int[5];
-
+        int index = 0;
+        
         Console.Write("1. Enter Test Scores\n2. Display Scores\n3. Analyze Scores \n4. Exit ");
 
 
@@ -32,14 +33,17 @@ class Program
                 {
                     Console.WriteLine("Enter Test Subject: ");
                     string subjectName = Console.ReadLine();
-
+                    subject[index] = subjectName;
+                    
                     Console.WriteLine("Enter Test Score: ");
-                    double score = double.Parse(Console.ReadLine());
+                    int subjectScore = int.Parse(Console.ReadLine());
+                    scores[index] = subjectScore;
+                    index++;
 
                 }
                 else if (number == 2)
                 {
-                    
+                    DisplayScores(scores, subject);
                 }
                 else if (number == 3)
                 {
@@ -54,6 +58,16 @@ class Program
 
         } while (number >= 1 && number <= 4);
 
+    }
+
+
+    static void DisplayScores(int[] scores, string[] subject)
+    {
+        for (int i = 0; i < scores.Length; i++)
+        {
+            Console.WriteLine($"Subject: {subject[i]}, Score: {scores[i]}");
+        }
+        
     }
 
     
