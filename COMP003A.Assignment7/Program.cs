@@ -13,7 +13,7 @@ class Program
         int[] scores = new int[5];
         int index = 0;
         
-        Console.Write("1. Enter Test Scores\n2. Display Scores\n3. Analyze Scores \n4. Exit ");
+        Console.Write("1. Enter Test Scores\n2. Display Scores\n3. Total Score\n4. Average Score\n5. Exit");
 
 
         int number;
@@ -24,7 +24,7 @@ class Program
             number = int.Parse(Console.ReadLine());
 
                 
-                if (number < 1 || number > 4)
+                if (number < 1 || number > 5)
                 {
                     Console.WriteLine("Invalid option. Please try again.");
 
@@ -47,9 +47,17 @@ class Program
                 }
                 else if (number == 3)
                 {
+                    int totalScore = ScoreTotalCalculation(scores, index);
+                   
+                    Console.WriteLine($"Total Sum: {totalScore}");
                     
                 }
                 else if (number == 4)
+                {
+                    
+                    
+                }
+                else if (number == 5)
                 {
                     Console.WriteLine("Goodbye! ");
                     break;
@@ -70,6 +78,18 @@ class Program
         
     }
 
-    
-    
+    static int ScoreTotalCalculation(int[] scores, int index)
+    {
+        int totalSum = 0;
+        for (int i = 0; i < index; i++)
+        {
+            
+            totalSum += scores[i];
+            
+        }
+        return totalSum;
+    }
+
+
+
 }
