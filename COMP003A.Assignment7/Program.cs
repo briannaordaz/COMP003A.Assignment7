@@ -54,7 +54,9 @@ class Program
                 }
                 else if (number == 4)
                 {
-                    
+                    int totalScore = ScoreTotalCalculation(scores, index);
+                    double averageScore = totalScore / number;
+                    Console.WriteLine($"Average Score: {averageScore}");
                     
                 }
                 else if (number == 5)
@@ -89,6 +91,8 @@ class Program
         }
         return totalSum;
     }
+
+    
 
 
 
