@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
-using System.Collections.Generic;
+
 
 // Theme A - Student Score Analyzer
 //      Process a set of monetary values representing expenses.
@@ -9,17 +9,28 @@ class Program
 {
     static void Main()
     {
-        string[] subject = new string[5];
-        int[] scores = new int[5];
-        int index = 0;
+        
+        //this is where the string and integer arrays are declared and initialized
+        //syntax  data type[] variable = new data type[size]
+            string[] subject = new string[5];
+            int[] scores = new int[5];
+            int index = 0;
         
         Console.Write("1. Enter Test Scores\n2. Display Scores\n3. Total Score\n4. Average Score\n5. Exit");
 
 
         int number = 0;
 
+        //this do-while loop will continue to display the menu prompt as long as the user enters a number equal to or greater than 1 and less than 5.
+        //if user chooses option 1, they will be prompted to add the subject of the test and the score
+        //if user chooses option 2, both the subject and score of the tests will be displayed
+        //if user chooses option 3, the program will display the total sum of all the test scores
+        //if user chooses option 4, the program will display the average of all the test scores
+        //if user chooses option 5, the program will display a goodbye message and end the execution
         do
         {
+            //this try-catch block will handle non-numeric input, if the user enters a value that is not an integer, the program will display "invalid input"
+            //if it does not catch any errors, the program will continue executing
             try
             {
 
@@ -84,6 +95,7 @@ class Program
 
 
                 }
+                
             }
             catch (FormatException)
             {
@@ -97,7 +109,9 @@ class Program
     }
 
     
-    //This method displays the subject name and score of the tests
+    //This method displays the subject name of the tests and their scores,
+    //it has 3 parameters, an integer array named 'scores, a string array called 'subject' and an integer named 'index'
+    //they are all passed down from the Main() method
     static void DisplayScores(int[] scores, string[] subject, int index)
     {
         /* A bug I was facing while working on my program is that since I used scores.Length in the DisplayScores() method,
